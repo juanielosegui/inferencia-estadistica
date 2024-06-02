@@ -1,9 +1,14 @@
+# 1)
+# a)
 # Parámetro de interés: \mu "tiempo medio de permanencia de la versión nueva"
 
+# b)
 # Hipótesis del investigador: H0: \mu = 60s vs. H1: \mu > 60s
 
+# c)
 # Nivel del test: 1% aproximadamente la probabilidad de tener el error de Tipo 1
 
+# d)
 # Xi = tiempo de la permanencia de la i-esima persona de la muestra
 # \dfrac{\overline{X}_{n}-60}{\sqrt{\dfrac{s^2}{n}}}
 # E(Xi) = \mu
@@ -18,12 +23,26 @@ media_muestral <- mean(datos$tiempo)
 media_muestral
 
 # b)
-boxplot(datos$tiempo, main="Boxplot de Tiempo", xlab="Tiempo", col="gray")
+boxplot(datos$tiempo,
+        main="Boxplot de Tiempo",
+        xlab="Tiempo", col="gray")
+
 abline(h = media_muestral, col = 'red')
 
 # c)
-hist(datos$tiempo, breaks = 25, probability = TRUE, main="Histograma de Tiempo", xlab="Valores", ylab="Frecuencia", col="white", border="black")
-curve(dnorm(x, mean = media_muestral, sd = sd(datos$tiempo)), col = 'red', add = TRUE, lwd = 2)
+hist(datos$tiempo,
+     breaks = 25,
+     probability = TRUE,
+     main="Histograma de Tiempo",
+     xlab="Valores", ylab="Frecuencia",
+     col="white",
+     border="black")
+
+curve(dnorm(x,
+            mean = media_muestral,
+            sd = sd(datos$tiempo)),
+      col = 'red',
+      add = TRUE, lwd = 2)
 
 
 # 3)
@@ -53,4 +72,5 @@ pvalor
 # No rechazo
 
 # 7)
-# No rechazo
+# No rechazo. Con un nivel del 1% ya es suficiente para rechazar, por lo tanto,
+# se seguiría cumpliendo mi decisión si elijo un nivel del 5%.
